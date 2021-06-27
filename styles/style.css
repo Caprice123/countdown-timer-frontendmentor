@@ -13,6 +13,7 @@
 body{
     background-image            : url(../images/bg-stars.svg);
     background-color            : hsl(235, 16%, 14%);
+    user-select                 : none;
 }
 img{
     width                       : 100%;
