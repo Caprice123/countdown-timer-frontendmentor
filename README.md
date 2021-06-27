@@ -14,8 +14,6 @@ This is a solution to the [Launch countdown timer challenge on Frontend Mentor](
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
 ## Overview
 
 ### The challenge
@@ -50,7 +48,7 @@ In this Project, I learn how to make animation and make something flip in a cert
 
 This is my code to tackle that problem
 
-'''css
+``` css
 .flip-top{
     animation                   : flip-top-part 1s forwards;
 }
@@ -69,11 +67,11 @@ This is my code to tackle that problem
         transform               : rotateX(90deg);
     }
 }
-'''
+```
 
-'''js
+``` js
 setInterval(flip_card_sec, 1000);
-'''
+```
 
 ### Continued development
 
