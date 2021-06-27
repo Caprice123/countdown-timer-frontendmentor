@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
+*{
+    padding                     : 0;
+    margin                      : 0;
+    box-sizing                  : border-box;
+    font-family                 : 'Red Hat Text', sans-serif;
+}
+:root{
+    --font-size                 : 6rem;
+    --trim-size                 : 20px;
+}
+
+body{
+    background-image            : url(../images/bg-stars.svg);
+    background-color            : hsl(235, 16%, 14%);
+}
+img{
+    width                       : 100%;
+    position                    : absolute;
+    bottom                      : 0;
+}
+.content{
+    position                    : absolute;
+    top                         : 50%;
+    left                        : 50%;
+    transform                   : translate(-50%,-50%);
+    width                       : 75%;
+    height                      : 75%;
+    display                     : flex;
+    justify-content             : space-evenly;
+    flex-direction              : column;
+    text-align                  : center;
+}
+
+.content > .title{
+    width                       : 50%;
+    height                      : 10%;
+    display                     : flex;
+    align-items                 : center;
+    justify-content             : center;
+    margin                      : 0 auto;
+    font-size                   : 2rem;
+    color                       : white;
+}
+
+.content > .title > span{
+    font-size                   : 2rem;
+    margin                      : 0 5px;
+    user-select                 : none;
+    animation                   : move 2.5s ease-in-out infinite;
+}
+@keyframes move{
+    0%{
+        transform               : translateY(0);
+    }
+    50%{
+        transform               : translateY(-50px);
+    }
+    100%{
+        transform               : translateY(0);
+    }
+    
+}
+.content > .cards{
+    display                     : flex;
+    justify-content             : space-evenly;
+    height                      : 50%;
+}
+
+.content > .cards > div{
+    width                       : 20%;
+    display                     : flex;
+    flex-direction              : column;
+}
+
+.content > .cards > div > .card{
+    height                      : 80%;
+}
+
+.content > .cards > div > .card > .top{
+    position                    : relative;
+    height                      : 50%;
+    width                       : 90%;
+    margin                      : 0 auto;
+    overflow                    : hidden;
+    border-top-left-radius      : 10px;
+    border-top-right-radius     : 10px;
+    
+}
+
+.content > .cards > div > .card > .top::before, 
+.content > .cards > div > .card > .bottom::after{
+    content                     : '';
+    position                    : absolute;
+    bottom                      : 0;
+    left                        : 0;
+    width                       : var(--trim-size);
+    height                      : var(--trim-size);
+    border-radius               : 50%;
+    z-index                     : 10;
+    transform                   : translate(-50%, 50%);
+    background                  : hsl(235, 16%, 14%);
+}
+
+.content > .cards > div > .card > .top::after, 
+.content > .cards > div > .card > .bottom::before{
+    content                     : '';
+    position                    : absolute;
+    bottom                      : 0;
+    right                       : 0;
+    border-radius               : 50%;
+    width                       : var(--trim-size);
+    height                      : var(--trim-size);
+    z-index                     : 10;
+    transform                   : translate(50%, 50%);
+    background                  : hsl(235, 16%, 14%);
+}
+
+.content > .cards > div > .card > .bottom::before{
+    top                         : 0;
+    transform                   : translate(50%, -50%);
+}
+
+.content > .cards > div > .card > .bottom::after{
+    top                         : 0;
+    transform                   : translate(-50%, -50%);
+}
+
+.content > .cards > div > .card > .bottom{
+    position                    : relative;
+    height                      : 50%;
+    width                       : 90%;
+    margin                      : 0 auto;
+    border-bottom-left-radius   : 10px;
+    border-bottom-right-radius  : 10px;
+    transform                   : translateY(0);
+    overflow                    : hidden;
+}
+
+.content > .cards > div > .card > .top > .top-content, 
+.content > .cards > div > .card > .bottom > .bottom-content{
+    position                    : absolute;
+    top                         : 0;
+    left                        : 0;
+    overflow                    : hidden;
+    width                       : 100%;
+    height                      : 200%;
+    display                     : flex;
+    flex-direction              : column;
+    justify-content             : center;
+    font-size                   : var(--font-size);
+    user-select                 : none;
+    color                       : hsl(345, 95%, 65%);
+    background-color            : hsl(236, 21%, 22%);
+}
+
+.content > .cards > div > .card > .bottom > .bottom-content{
+    color                       : hsl(345, 95%, 68%);
+    transform                   : translateY(-50%);
+    background-color            : hsl(236, 21%, 26%);
+}
+
+@keyframes flip-top-part{
+    0% {
+        z-index                 : 5;
+        transform               : rotateX(0deg);
+    }
+    50%{
+        z-index                 : 5;
+        transform               : rotateX(90deg);
+    }
+    100%{
+        z-index                 : 5;
+        transform               : rotateX(90deg);
+    }
+}
+@keyframes flip-bottom-part{
+    0% {
+          
+        z-index                 : 5;
+        transform               : translateY(-50%) rotateX(270deg);
+    }
+    50%{
+          
+        z-index                 : 5;
+        transform               : translateY(-50%) rotateX(360deg);
+    }
+    100%{
+          
+        z-index                 : 5;
+        transform               : translateY(-50%) rotateX(360deg);
+    }
+}
+
+.content > .cards > div > .card > .top > .back, 
+.content > .cards > div > .card > .bottom > .back{
+    position                    : absolute;
+    top                         : 0;
+    left                        : 0;
+    overflow                    : hidden;
+    width                       : 100%;
+    height                      : 200%;
+    display                     : flex;
+    flex-direction              : column;
+    justify-content             : center;
+    font-size                   : var(--font-size);
+    color                       : hsl(345, 95%, 65%);
+    z-index                     : 2;
+    user-select                 : none;
+    background-color            : hsl(236, 21%, 22%);
+}
+
+.content > .cards > div > .card > .bottom > .back{
+    color                       : hsl(345, 95%, 68%);
+    background-color            : hsl(236, 21%, 26%);
+}
+
+.flip{
+    z-index                     : 4;
+}
+
+
+.flip-top{
+    animation                   : flip-top-part 1s forwards;
+}
+
+.flip-bot{
+    animation                   : flip-bottom-part 1s forwards 0.5s;
+}
+
+.content > .cards > div >.exp{
+    display                     : flex;
+    justify-content             : center;
+    flex-direction              : column;
+    height                      : 20%;
+    text-transform              : uppercase;
+    letter-spacing              : 4px;
+    color                       : white;
+    user-select                 : none;
+}
+
+.contact{
+    width                       : 50%;
+    height                      : 10%;
+    position                    : absolute;
+    bottom                      : 10%;
+    left                        : 50%;
+    transform                   : translateX(-50%);
+    margin                      : 0 auto;
+    display                     : flex;
+    justify-content             : space-evenly;
+    
+}
+
+.contact > div{
+    height                      : 100%;
+    width                       : 5vh;
+    
+}
+
+.contact > div > a > img{
+    height                      : 5vh;
+    width                       : 5vh;
+}
+
+.contact > div > a > img:hover{
+    animation                   : iconmove 1s ease-in-out infinite;
+    filter                      : invert(48%) sepia(64%) saturate(745%) hue-rotate(301deg) brightness(101%) contrast(97%);
+}
+
+@keyframes iconmove {
+    0%{
+        transform               : translateY(0);
+    }
+    50%{
+        transform               : translateY(-50%);
+    }
+    100%{
+        transform               : translateY(0);
+    }
+}
+
+.attribution { 
+    position                    : absolute;
+    width                       : 100%;
+    bottom                      : 0;
+    font-size                   : 11px; 
+    text-align                  : center; 
+    color                       : white;
+}
+.attribution a { 
+    color                       : hsl(228, 45%, 44%); 
+}
