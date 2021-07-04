@@ -5,9 +5,10 @@ var aftertopContent = document.querySelectorAll(".top-content.back")
 var afterbotContent = document.querySelectorAll(".bottom-content.back")
 
 var second = 1
-var hour = 1
+var hours = 1
 var minute = 1
 var days = 1
+
 
 function rounding(number){
     return number < 0 ? number + 60 : number
@@ -43,6 +44,9 @@ var topSecond = topContent[3],
     afterBotSecond = afterbotContent[3]
 
 function flip_card_sec(){
+    
+    
+    
     if (checkNotEnd()){
         topSecond.classList.toggle("flip-top")
         afterTopSecond.classList.toggle("flip-top")
@@ -119,6 +123,10 @@ var topHour = topContent[1],
 
 
 function flip_card_hour(){
+    var today = new Date();
+
+    console.log("HOUR " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds())
+    
     topHour.classList.toggle("flip-top")
     afterTopHour.classList.toggle("flip-top")
     botHour.classList.toggle("flip-bot")
@@ -127,12 +135,12 @@ function flip_card_hour(){
     var hour = [topHour, afterTopHour, botHour, afterBotHour]
     hour.forEach(l => l.classList.toggle("flip"))
     
-    if (hour){
-        hour = 0
+    if (hours){
+        hours = 0
         topHour.textContent = parseInt(topHour.textContent) - 2
     }
     else{
-        hour = 1
+        hours = 1
         afterTopHour.textContent = parseInt(afterTopHour.textContent) - 2
     }
 
@@ -159,8 +167,8 @@ function flip_card_day(){
     botDays.classList.toggle("flip-bot")
     afterBotDays.classList.toggle("flip-bot")
 
-    var days = [topDays, afterTopDays, botDays, afterBotDays]
-    days.forEach(l => l.classList.toggle("flip"))
+    var day = [topDays, afterTopDays, botDays, afterBotDays]
+    day.forEach(l => l.classList.toggle("flip"))
     
     if (days){
         days = 0
@@ -181,9 +189,10 @@ function flip_card_day(){
     botDays.textContent = afterTopDays.textContent
     afterBotDays.textContent = topDays.textContent
 }
+var today = new Date();
 
-
-setInterval(flip_card_sec, 1000);
+console.log(today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds())
+window.setInterval(flip_card_sec, 1000);
 topSecond.textContent = updateData(topSecond.textContent)
 afterTopSecond.textContent = updateData(parseInt(topSecond.textContent) - 1)
 botSecond.textContent = afterTopSecond.textContent
